@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài tập JS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="min-h-screen">
+    <div class="flex textb">
+      <!-- Sidebar -->
+      <aside
+        class="w-64 bg-white border-r border-gray-100 flex flex-col pt-6 px-4 shadow-sm"
+        style="min-height: 100vh"
+      >
+        <div class="flex items-center gap-2 mb-8 px-2">
+          <span class="text-blue-500 text-2xl">📖</span>
+          <span class="font-bold text-gray-800 text-lg tracking-tight"
+            >Bài tập JS</span
+          >
+        </div>
+        <nav class="flex flex-col gap-1">
+          <div class="sidebar-item active" data-exercise="1">Bài 1</div>
+          <div class="sidebar-item" data-exercise="2">Bài 2</div>
+          <div class="sidebar-item" data-exercise="3">Bài 3</div>
+          <div class="sidebar-item" data-exercise="4">Bài 4</div>
+          <div class="sidebar-item" data-exercise="5">Bài 5</div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-8">
+        <!-- Alert area -->
+        <div id="alert-area"></div>
+
+        <!-- Exercise 1: Tính lương -->
+        <div class="exercise-content active" id="exercise-1">
+          <div class="card max-w-2xl">
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="w-11 h-11 rounded-xl bg-blue-100 flex items-center justify-center"
+              >
+                <span class="text-blue-600 text-xl">$</span>
+              </div>
+              <h1 class="text-2xl font-bold text-gray-800">
+                Tính tiền lương nhân viên
+              </h1>
+            </div>
+
+            <!-- Hint -->
+            <div class="hint-box mb-7">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-yellow-500">💡</span>
+                <span class="font-semibold text-gray-700">Gợi ý:</span>
+              </div>
+              <p class="text-gray-600 mb-3 text-sm">
+                Công thức:
+                <strong class="text-blue-600"
+                  >Lương = Lương 1 ngày × số ngày làm</strong
+                >
+              </p>
+              <ul class="space-y-1.5">
+                <li class="flex items-center gap-2 text-blue-500 text-sm">
+                  <span
+                    class="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"
+                  ></span
+                  >Tìm tới thẻ và lấy giá trị
+                </li>
+                <li class="flex items-center gap-2 text-blue-500 text-sm">
+                  <span
+                    class="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"
+                  ></span
+                  >Tạo hàm cơ bản
+                </li>
+                <li class="flex items-center gap-2 text-blue-500 text-sm">
+                  <span
+                    class="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"
+                  ></span
+                  >Gắn sự kiện click cho button
+                </li>
+                <li class="flex items-center gap-2 text-blue-500 text-sm">
+                  <span
+                    class="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"
+                  ></span
+                  >Thay đổi nội dung cho thẻ
+                </li>
+                <li class="flex items-center gap-2 text-blue-500 text-sm">
+                  <span
+                    class="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"
+                  ></span
+                  >Xử lý load trang với button của form
+                </li>
+              </ul>
+            </div>
+
+            <!-- Inputs -->
+            <div class="grid grid-cols-2 gap-5 mb-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Lương 1 ngày</label
+                >
+                <input
+                  id="salary"
+                  class="input-field"
+                  type="number"
+                  placeholder="VD: 500000"
+                  min="0"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Số ngày làm</label
+                >
+                <input
+                  id="days"
+                  class="input-field"
+                  type="number"
+                  placeholder="VD: 22"
+                  min="0"
+                />
+              </div>
+            </div>
+
+            <!-- Button -->
+            <button class="btn-cal" onclick="tinhLuong()">Tính lương</button>
+
+            <!-- Result -->
+            <div id="result-area-1"></div>
+          </div>
+        </div>
+
+        <!-- Exercise 2: Tính giá trị trung bình -->
+        <div class="exercise-content" id="exercise-2">
+          <div class="card max-w-2xl">
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="w-11 h-11 rounded-xl bg-green-100 flex items-center justify-center"
+              >
+                <span class="text-green-600 text-xl">⚖️</span>
+              </div>
+              <h1 class="text-2xl font-bold text-gray-800">
+                Tính giá trị trung bình
+              </h1>
+            </div>
+            <div class="hint-box mb-7">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-yellow-500">💡</span>
+                <span class="font-semibold text-gray-700">Gợi ý:</span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Công thức:
+                <strong class="text-green-600"
+                  >Trung bình = (Tổng các giá trị) / (Số lượng giá trị)</strong
+                >
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-5 mb-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Số thứ 1</label
+                >
+                <input
+                  id="num1"
+                  class="input-field"
+                  type="number"
+                  placeholder="Nhập số thứ 1"
+                  min="0"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Số thứ 2</label
+                >
+                <input
+                  id="num2"
+                  class="input-field"
+                  type="number"
+                  placeholder="Nhập số thứ 2"
+                  min="0"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Số thứ 3</label
+                >
+                <input
+                  id="num3"
+                  class="input-field"
+                  type="number"
+                  placeholder="Nhập số thứ 3"
+                  min="0"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Số thứ 4</label
+                >
+                <input
+                  id="num4"
+                  class="input-field"
+                  type="number"
+                  placeholder="Nhập số thứ 4"
+                  min="0"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Số thứ 5</label
+                >
+                <input
+                  id="num5"
+                  class="input-field"
+                  type="number"
+                  placeholder="Nhập số thứ 5"
+                  min="0"
+                />
+              </div>
+            </div>
+
+            <button
+              class="btn-cal"
+              style="background: #16a34a"
+              onclick="tinhTrungBinh()"
+              placeholder="VD: 170"
+              min="0"
+            >
+              Tính trung bình
+            </button>
+            <div id="result-area-2"></div>
+          </div>
+        </div>
+
+        <!-- Exercise 3: Quy đổi Tiền Tệ-->
+        <div class="exercise-content" id="exercise-3">
+          <div class="card max-w-2xl">
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="w-11 h-11 rounded-xl bg-orange-100 flex items-center justify-center"
+              >
+                <span class="text-orange-600 text-xl">💱</span>
+              </div>
+              <h1 class="text-2xl font-bold text-gray-800">Quy đổi tiền tệ</h1>
+            </div>
+            <div class="hint-box mb-7">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-yellow-500">💡</span>
+                <span class="font-semibold text-gray-700">Gợi ý:</span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Công thức:
+                <strong class="text-orange-600"
+                  >Giá USD mặc định 1 USD = 23500 VNĐ</strong
+                >
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-5 mb-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Số tiền (USD)</label
+                >
+                <input
+                  id="usd"
+                  class="input-field"
+                  type="number"
+                  placeholder="Nhập số tiền USD"
+                  min="0"
+                />
+              </div>
+            </div>
+            <button
+              class="btn-cal"
+              style="background: #ea580c"
+              onclick="quyDoiTienTe()"
+            >
+              Quy đổi tiền tệ
+            </button>
+            <div id="result-area-3"></div>
+          </div>
+        </div>
+
+        <!-- Exercise 4: Tính diện tích, chu vi hình chữ nhật -->
+        <div class="exercise-content" id="exercise-4">
+          <div class="card max-w-2xl">
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="w-11 h-11 rounded-xl bg-yellow-100 flex items-center justify-center"
+              >
+                <span class="text-yellow-600 text-xl">⚡</span>
+              </div>
+              <h1 class="text-2xl font-bold text-gray-800">
+                Tính diện tích, chu vi hình chữ nhật
+              </h1>
+            </div>
+            <div class="hint-box mb-7">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-yellow-500">💡</span>
+                <span class="font-semibold text-gray-700">Gợi ý:</span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Công thức:
+                <strong class="text-yellow-600"
+                  >Diện tích = Chiều dài × Chiều rộng</strong
+                >
+              </p>
+              <p class="text-gray-600 text-sm">
+                <strong class="text-yellow-600"
+                  >Chu vi = 2 × (Chiều dài + Chiều rộng)</strong
+                >
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-5 mb-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Chiều dài (m)</label
+                >
+                <input
+                  id="length"
+                  class="input-field"
+                  type="number"
+                  placeholder="Nhập chiều dài"
+                  min="0"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Chiều rộng (m)</label
+                >
+                <input
+                  id="width"
+                  class="input-field"
+                  type="number"
+                  placeholder="Nhập chiều rộng"
+                  min="0"
+                />
+              </div>
+            </div>
+            <button
+              class="btn-cal"
+              style="background: #ca8a04"
+              onclick="tinhDienTichChuVi()"
+            >
+              Tính diện tích và chu vi
+            </button>
+            <div id="result-area-4"></div>
+            <div id="result-area-5"></div>
+          </div>
+        </div>
+
+        <!-- Exercise 5: Tính tổng 2 ký số -->
+        <div class="exercise-content" id="exercise-5">
+          <div class="card max-w-2xl">
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="w-11 h-11 rounded-xl bg-purple-100 flex items-center justify-center"
+              >
+                <span class="text-purple-600 text-xl">🧮</span>
+              </div>
+              <h1 class="text-2xl font-bold text-gray-800">
+                Tính tổng 2 ký số
+              </h1>
+            </div>
+            <div class="hint-box mb-7">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-yellow-500">💡</span>
+                <span class="font-semibold text-gray-700">Gợi ý:</span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Công thức:
+                <strong class="text-purple-600"
+                  >Tổng = Chữ số hàng chục + Chữ số hàng đơn vị</strong
+                >
+              </p>
+            </div>
+            <div class="grid grid-cols-3 gap-4 mb-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Nhập số:</label
+                >
+                <input
+                  id="numberInput"
+                  class="input-field"
+                  type="number"
+                  placeholder="Nhập số có 2 chữ số"
+                  min="0"
+                />
+              </div>
+            </div>
+            <button
+              class="btn-cal"
+              style="background: #7c3aed"
+              onclick="tinhTongKySo()"
+            >
+              Tính tổng 2 ký số
+            </button>
+            <div id="result-area-6"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./index.js"></script>
+    <script src="./utils.js"></script>
+  </body>
+</html>
