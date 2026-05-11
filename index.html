@@ -3,406 +3,279 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bài tập JS</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <title>Bài tập JS - Trọng tâm</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body class="min-h-screen">
-    <div class="flex textb">
-      <!-- Sidebar -->
-      <aside
-        class="w-64 bg-white border-r border-gray-100 flex flex-col pt-6 px-4 shadow-sm"
-        style="min-height: 100vh"
-      >
-        <div class="flex items-center gap-2 mb-8 px-2">
-          <span class="text-blue-500 text-2xl">📖</span>
-          <span class="font-bold text-gray-800 text-lg tracking-tight"
-            >Bài tập JS</span
-          >
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <span style="color: #2563eb">📖</span>
+        <span>Bài tập JS</span>
+      </div>
+      <nav>
+        <div class="sidebar-item active" data-exercise="1">
+          Quản lý tuyển sinh
         </div>
-        <nav class="flex flex-col gap-1">
-          <div class="sidebar-item active" data-exercise="1">Bài 1</div>
-          <div class="sidebar-item" data-exercise="2">Bài 2</div>
-          <div class="sidebar-item" data-exercise="3">Bài 3</div>
-          <div class="sidebar-item" data-exercise="4">Bài 4</div>
-          <div class="sidebar-item" data-exercise="5">Bài 5</div>
-        </nav>
-      </aside>
+        <div class="sidebar-item" data-exercise="2">Tính tiền điện</div>
+        <div class="sidebar-item" data-exercise="3">Thuế thu nhập</div>
+        <div class="sidebar-item" data-exercise="4">Tính tiền cáp</div>
+      </nav>
+    </aside>
 
-      <!-- Main Content -->
-      <main class="flex-1 p-8">
-        <!-- Alert area -->
-        <div id="alert-area"></div>
-
-        <!-- Exercise 1: Tính lương -->
-        <div class="exercise-content active" id="exercise-1">
-          <div class="card max-w-2xl">
-            <div class="flex items-center gap-3 mb-6">
-              <div
-                class="w-11 h-11 rounded-xl bg-blue-100 flex items-center justify-center"
-              >
-                <span class="text-blue-600 text-xl">$</span>
-              </div>
-              <h1 class="text-2xl font-bold text-gray-800">
-                Tính tiền lương nhân viên
-              </h1>
-            </div>
-
-            <!-- Hint -->
-            <div class="hint-box mb-7">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-yellow-500">💡</span>
-                <span class="font-semibold text-gray-700">Gợi ý:</span>
-              </div>
-              <p class="text-gray-600 mb-3 text-sm">
-                Công thức:
-                <strong class="text-blue-600"
-                  >Lương = Lương 1 ngày × số ngày làm</strong
-                >
-              </p>
-              <ul class="space-y-1.5">
-                <li class="flex items-center gap-2 text-blue-500 text-sm">
-                  <span
-                    class="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"
-                  ></span
-                  >Tìm tới thẻ và lấy giá trị
-                </li>
-                <li class="flex items-center gap-2 text-blue-500 text-sm">
-                  <span
-                    class="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"
-                  ></span
-                  >Tạo hàm cơ bản
-                </li>
-                <li class="flex items-center gap-2 text-blue-500 text-sm">
-                  <span
-                    class="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"
-                  ></span
-                  >Gắn sự kiện click cho button
-                </li>
-                <li class="flex items-center gap-2 text-blue-500 text-sm">
-                  <span
-                    class="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"
-                  ></span
-                  >Thay đổi nội dung cho thẻ
-                </li>
-                <li class="flex items-center gap-2 text-blue-500 text-sm">
-                  <span
-                    class="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"
-                  ></span
-                  >Xử lý load trang với button của form
-                </li>
-              </ul>
-            </div>
-
-            <!-- Inputs -->
-            <div class="grid grid-cols-2 gap-5 mb-6">
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2"
-                  >Lương 1 ngày</label
-                >
-                <input
-                  id="salary"
-                  class="input-field"
-                  type="number"
-                  placeholder="VD: 500000"
-                  min="0"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2"
-                  >Số ngày làm</label
-                >
-                <input
-                  id="days"
-                  class="input-field"
-                  type="number"
-                  placeholder="VD: 22"
-                  min="0"
-                />
-              </div>
-            </div>
-
-            <!-- Button -->
-            <button class="btn-cal" onclick="tinhLuong()">Tính lương</button>
-
-            <!-- Result -->
-            <div id="result-area-1"></div>
+    <main class="main-content">
+      <div class="exercise-content active" id="exercise-1">
+        <div class="card">
+          <div class="card-header">
+            <div class="icon-box icon-red">🎓</div>
+            <h1 class="card-title">Quản lý tuyển sinh</h1>
           </div>
-        </div>
 
-        <!-- Exercise 2: Tính giá trị trung bình -->
-        <div class="exercise-content" id="exercise-2">
-          <div class="card max-w-2xl">
-            <div class="flex items-center gap-3 mb-6">
-              <div
-                class="w-11 h-11 rounded-xl bg-green-100 flex items-center justify-center"
-              >
-                <span class="text-green-600 text-xl">⚖️</span>
-              </div>
-              <h1 class="text-2xl font-bold text-gray-800">
-                Tính giá trị trung bình
-              </h1>
-            </div>
-            <div class="hint-box mb-7">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-yellow-500">💡</span>
-                <span class="font-semibold text-gray-700">Gợi ý:</span>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Công thức:
-                <strong class="text-green-600"
-                  >Trung bình = (Tổng các giá trị) / (Số lượng giá trị)</strong
-                >
-              </p>
-            </div>
-            <div class="grid grid-cols-2 gap-5 mb-6">
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2"
-                  >Số thứ 1</label
-                >
-                <input
-                  id="num1"
-                  class="input-field"
-                  type="number"
-                  placeholder="Nhập số thứ 1"
-                  min="0"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2"
-                  >Số thứ 2</label
-                >
-                <input
-                  id="num2"
-                  class="input-field"
-                  type="number"
-                  placeholder="Nhập số thứ 2"
-                  min="0"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2"
-                  >Số thứ 3</label
-                >
-                <input
-                  id="num3"
-                  class="input-field"
-                  type="number"
-                  placeholder="Nhập số thứ 3"
-                  min="0"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2"
-                  >Số thứ 4</label
-                >
-                <input
-                  id="num4"
-                  class="input-field"
-                  type="number"
-                  placeholder="Nhập số thứ 4"
-                  min="0"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2"
-                  >Số thứ 5</label
-                >
-                <input
-                  id="num5"
-                  class="input-field"
-                  type="number"
-                  placeholder="Nhập số thứ 5"
-                  min="0"
-                />
-              </div>
-            </div>
-
-            <button
-              class="btn-cal"
-              style="background: #16a34a"
-              onclick="tinhTrungBinh()"
-              placeholder="VD: 170"
-              min="0"
-            >
-              Tính trung bình
-            </button>
-            <div id="result-area-2"></div>
+          <div class="hint-box">
+            <p>
+              • Thí sinh trúng tuyển nếu Tổng điểm ≥ Điểm chuẩn và không môn nào
+              điểm 0.
+            </p>
+            <p>
+              • Tổng điểm = Điểm 3 môn + Điểm ưu tiên (Khu vực & Đối tượng).
+            </p>
           </div>
-        </div>
 
-        <!-- Exercise 3: Quy đổi Tiền Tệ-->
-        <div class="exercise-content" id="exercise-3">
-          <div class="card max-w-2xl">
-            <div class="flex items-center gap-3 mb-6">
-              <div
-                class="w-11 h-11 rounded-xl bg-orange-100 flex items-center justify-center"
-              >
-                <span class="text-orange-600 text-xl">💱</span>
-              </div>
-              <h1 class="text-2xl font-bold text-gray-800">Quy đổi tiền tệ</h1>
+          <div class="grid-3">
+            <div class="form-group">
+              <label>Điểm chuẩn</label>
+              <input
+                id="diemChuan"
+                class="input-field"
+                type="number"
+                placeholder="Nhập điểm chuẩn"
+              />
             </div>
-            <div class="hint-box mb-7">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-yellow-500">💡</span>
-                <span class="font-semibold text-gray-700">Gợi ý:</span>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Công thức:
-                <strong class="text-orange-600"
-                  >Giá USD mặc định 1 USD = 23500 VNĐ</strong
-                >
-              </p>
+            <div class="form-group">
+              <label>Môn 1</label>
+              <input
+                id="diemMon1"
+                class="input-field"
+                type="number"
+                placeholder="Điểm môn 1"
+              />
             </div>
-            <div class="grid grid-cols-2 gap-5 mb-6">
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2"
-                  >Số tiền (USD)</label
-                >
-                <input
-                  id="usd"
-                  class="input-field"
-                  type="number"
-                  placeholder="Nhập số tiền USD"
-                  min="0"
-                />
-              </div>
+            <div class="form-group">
+              <label>Môn 2</label>
+              <input
+                id="diemMon2"
+                class="input-field"
+                type="number"
+                placeholder="Điểm môn 2"
+              />
             </div>
-            <button
-              class="btn-cal"
-              style="background: #ea580c"
-              onclick="quyDoiTienTe()"
-            >
-              Quy đổi tiền tệ
-            </button>
-            <div id="result-area-3"></div>
+            <div class="form-group">
+              <label>Môn 3</label>
+              <input
+                id="diemMon3"
+                class="input-field"
+                type="number"
+                placeholder="Điểm môn 3"
+              />
+            </div>
+            <div class="form-group">
+              <label>Khu vực</label>
+              <select id="khuVuc" class="input-field">
+                <option value="X">Không ưu tiên</option>
+                <option value="A">Khu vực A (2đ)</option>
+                <option value="B">Khu vực B (1đ)</option>
+                <option value="C">Khu vực C (0.5đ)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Đối tượng</label>
+              <select id="doiTuong" class="input-field">
+                <option value="0">Không ưu tiên</option>
+                <option value="1">Đối tượng 1 (2.5đ)</option>
+                <option value="2">Đối tượng 2 (1.5đ)</option>
+                <option value="3">Đối tượng 3 (1đ)</option>
+              </select>
+            </div>
           </div>
-        </div>
 
-        <!-- Exercise 4: Tính diện tích, chu vi hình chữ nhật -->
-        <div class="exercise-content" id="exercise-4">
-          <div class="card max-w-2xl">
-            <div class="flex items-center gap-3 mb-6">
-              <div
-                class="w-11 h-11 rounded-xl bg-yellow-100 flex items-center justify-center"
-              >
-                <span class="text-yellow-600 text-xl">⚡</span>
-              </div>
-              <h1 class="text-2xl font-bold text-gray-800">
-                Tính diện tích, chu vi hình chữ nhật
-              </h1>
-            </div>
-            <div class="hint-box mb-7">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-yellow-500">💡</span>
-                <span class="font-semibold text-gray-700">Gợi ý:</span>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Công thức:
-                <strong class="text-yellow-600"
-                  >Diện tích = Chiều dài × Chiều rộng</strong
-                >
-              </p>
-              <p class="text-gray-600 text-sm">
-                <strong class="text-yellow-600"
-                  >Chu vi = 2 × (Chiều dài + Chiều rộng)</strong
-                >
-              </p>
-            </div>
-            <div class="grid grid-cols-2 gap-5 mb-6">
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2"
-                  >Chiều dài (m)</label
-                >
-                <input
-                  id="length"
-                  class="input-field"
-                  type="number"
-                  placeholder="Nhập chiều dài"
-                  min="0"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2"
-                  >Chiều rộng (m)</label
-                >
-                <input
-                  id="width"
-                  class="input-field"
-                  type="number"
-                  placeholder="Nhập chiều rộng"
-                  min="0"
-                />
-              </div>
-            </div>
-            <button
-              class="btn-cal"
-              style="background: #ca8a04"
-              onclick="tinhDienTichChuVi()"
-            >
-              Tính diện tích và chu vi
-            </button>
-            <div id="result-area-4"></div>
-            <div id="result-area-5"></div>
-          </div>
+          <button class="btn-cal btn-red" onclick="tinhKetQuaTuyenSinh()">
+            Xem kết quả
+          </button>
+          <div id="resultTuyenSinh"></div>
         </div>
+      </div>
 
-        <!-- Exercise 5: Tính tổng 2 ký số -->
-        <div class="exercise-content" id="exercise-5">
-          <div class="card max-w-2xl">
-            <div class="flex items-center gap-3 mb-6">
-              <div
-                class="w-11 h-11 rounded-xl bg-purple-100 flex items-center justify-center"
-              >
-                <span class="text-purple-600 text-xl">🧮</span>
-              </div>
-              <h1 class="text-2xl font-bold text-gray-800">
-                Tính tổng 2 ký số
-              </h1>
-            </div>
-            <div class="hint-box mb-7">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-yellow-500">💡</span>
-                <span class="font-semibold text-gray-700">Gợi ý:</span>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Công thức:
-                <strong class="text-purple-600"
-                  >Tổng = Chữ số hàng chục + Chữ số hàng đơn vị</strong
-                >
-              </p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 mb-6">
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2"
-                  >Nhập số:</label
-                >
-                <input
-                  id="numberInput"
-                  class="input-field"
-                  type="number"
-                  placeholder="Nhập số có 2 chữ số"
-                  min="0"
-                />
-              </div>
-            </div>
-            <button
-              class="btn-cal"
-              style="background: #7c3aed"
-              onclick="tinhTongKySo()"
-            >
-              Tính tổng 2 ký số
-            </button>
-            <div id="result-area-6"></div>
+      <div class="exercise-content" id="exercise-2">
+        <div class="card">
+          <div class="card-header">
+            <div class="icon-box icon-cyan">⚡</div>
+            <h1 class="card-title">Tính tiền điện</h1>
           </div>
+          <div class="hint-box">
+            <p>
+              Quy tắc tính lũy tiến: 50kw đầu (500đ), 50kw kế (650đ), 100kw kế
+              (850đ), 150kw kế (1100đ), còn lại (1300đ).
+            </p>
+          </div>
+          <div class="grid-2">
+            <div class="form-group">
+              <label>Họ tên</label>
+              <input
+                id="tenKhachHang"
+                class="input-field"
+                type="text"
+                placeholder="Nhập tên"
+              />
+            </div>
+            <div class="form-group">
+              <label>Số Kw tiêu thụ</label>
+              <input
+                id="soKw"
+                class="input-field"
+                type="number"
+                placeholder="VD: 150"
+              />
+            </div>
+          </div>
+          <button class="btn-cal btn-cyan" onclick="tinhTienDien()">
+            Tính tiền điện
+          </button>
+          <div id="resultTienDien"></div>
         </div>
-      </main>
-    </div>
+      </div>
+
+      <div class="exercise-content" id="exercise-3">
+        <div class="card">
+          <div class="card-header">
+            <div class="icon-box icon-teal">💰</div>
+            <h1 class="card-title">Thuế thu nhập cá nhân</h1>
+          </div>
+          <div class="hint-box">
+            <p>
+              Thu nhập chịu thuế = Tổng thu nhập - 4tr - (Số người phụ thuộc *
+              1.6tr).
+            </p>
+          </div>
+          <div class="grid-3">
+            <div class="form-group col-span-full">
+              <label>Họ tên</label>
+              <input
+                id="tenNguoiNopThue"
+                class="input-field"
+                type="text"
+                placeholder="Họ tên người nộp thuế"
+              />
+            </div>
+            <div class="form-group col-span-2">
+              <label>Tổng thu nhập năm</label>
+              <input
+                id="tongThuNhap"
+                class="input-field"
+                type="number"
+                placeholder="Nhập VNĐ"
+              />
+            </div>
+            <div class="form-group">
+              <label>Số người phụ thuộc</label>
+              <input
+                id="soNguoiPhuThuoc"
+                class="input-field"
+                type="number"
+                placeholder="Số người"
+              />
+            </div>
+          </div>
+          <button class="btn-cal btn-teal" onclick="tinhThueThuNhap()">
+            Tính tiền thuế
+          </button>
+          <div id="resultThue"></div>
+        </div>
+      </div>
+
+      <div class="exercise-content" id="exercise-4">
+        <div class="card">
+          <div class="card-header">
+            <div class="icon-box icon-indigo">📺</div>
+            <h1 class="card-title">Tính tiền cáp</h1>
+          </div>
+          <div class="grid-2">
+            <div class="form-group">
+              <label>Mã khách hàng</label>
+              <input
+                id="maKhachHang"
+                class="input-field"
+                type="text"
+                placeholder="Nhập mã KH"
+              />
+            </div>
+            <div class="form-group">
+              <label>Loại khách hàng</label>
+              <select id="loaiKhachHang" class="input-field">
+                <option value="nhaDan">Nhà Dân</option>
+                <option value="doanhNghiep">Doanh Nghiệp</option>
+              </select>
+            </div>
+            <div class="form-group" id="wrapKetNoi" style="display: none">
+              <label>Số kết nối</label>
+              <input
+                id="soKetNoi"
+                class="input-field"
+                type="number"
+                placeholder="Nhập số kết nối"
+                disabled
+              />
+            </div>
+            <div class="form-group">
+              <label>Số kênh cao cấp</label>
+              <input
+                id="soKenhCaoCap"
+                class="input-field"
+                type="number"
+                placeholder="Nhập số kênh"
+              />
+            </div>
+          </div>
+          <button class="btn-cal btn-indigo" onclick="tinhTienCap()">
+            Tính tiền cáp
+          </button>
+          <div id="resultTienCap"></div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Logic Sidebar Tab
+      document.querySelectorAll(".sidebar-item").forEach((item) => {
+        item.addEventListener("click", function () {
+          document
+            .querySelectorAll(".sidebar-item")
+            .forEach((i) => i.classList.remove("active"));
+          document
+            .querySelectorAll(".exercise-content")
+            .forEach((c) => c.classList.remove("active"));
+
+          this.classList.add("active");
+          document
+            .getElementById("exercise-" + this.getAttribute("data-exercise"))
+            .classList.add("active");
+        });
+      });
+
+      // Logic Ẩn/Hiện Ô Kết Nối
+      const selLoaiKH = document.getElementById("loaiKhachHang");
+      const wrapKN = document.getElementById("wrapKetNoi");
+      const inpKN = document.getElementById("soKetNoi");
+
+      selLoaiKH.addEventListener("change", (e) => {
+        if (e.target.value === "doanhNghiep") {
+          wrapKN.style.display = "block";
+          inpKN.disabled = false;
+        } else {
+          wrapKN.style.display = "none";
+          inpKN.disabled = true;
+          inpKN.value = "";
+        }
+      });
+    </script>
     <script src="./index.js"></script>
-    <script src="./utils.js"></script>
   </body>
 </html>
